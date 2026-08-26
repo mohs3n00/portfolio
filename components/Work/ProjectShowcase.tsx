@@ -40,14 +40,14 @@ export type StickerConfig = {
   entranceDelay?: number;
   animationType?: 'fadeScale' | 'slideUp' | 'float';
   isFlying?: boolean;
-  trajectory?: Trajectory;
+  trajectory?: any;
   floatDuration?: number;
 };
 
 export interface ProjectShowcaseProps {
   project: ProjectData;
   alignment?: 'alignLeft' | 'alignRight' | 'alignCenter';
-  clouds?: CloudConfig[];
+  clouds?: any[];
   stickers?: StickerConfig[];
 }
 
