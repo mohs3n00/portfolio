@@ -17,7 +17,7 @@ export default function MerchAndProducts() {
   const scaleEffect = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
   return (
-    <div ref={containerRef} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '15vh', padding: '15vh 0' }}>
+    <div ref={containerRef} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '135px', padding: '135px 0' }}>
       
       {/* Scene 07: Merch / Hoodie */}
       <div className="container">

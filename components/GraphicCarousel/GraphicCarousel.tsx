@@ -167,7 +167,7 @@ export default function GraphicCarousel({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0 2vw',
+          padding: '0 28.8px',
           pointerEvents: 'none',
           zIndex: 10
         }}>

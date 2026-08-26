@@ -4,12 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import ProtectedImage from '../ProtectedMedia/ProtectedImage';
+import SocialGalleryCarousel from './SocialGalleryCarousel';
+import FixedArtboard from '../FixedArtboard/FixedArtboard';
 
 const RafiqiCaseStudy = dynamic(() => import('../Rafiqi/RafiqiCaseStudy'));
 const InkMilkCaseStudy = dynamic(() => import('../InkMilk/InkMilkCaseStudy'));
-const GraphicCarousel = dynamic(() => import('../GraphicCarousel/GraphicCarousel'));
-// Future graphic projects will be imported here:
-// const GraphicProject02 = dynamic(() => import('../GraphicProject02/GraphicProject02'));
 
 export default function GraphicProjects() {
   const carouselDemoImages = [
@@ -59,8 +58,9 @@ export default function GraphicProjects() {
       {/* 
         GRAPHIC TYPOGRAPHY HEADER
       */}
-      <div className="graphic-typo-header">
-          {/* Ambient decorations filling the empty side spaces */}
+      <FixedArtboard artboardWidth={1440}>
+        <div className="graphic-typo-header">
+            {/* Ambient decorations filling the empty side spaces */}
           <motion.img 
             src="/images/stickers/planet.webp" 
             className="ambient-deco-left" 
@@ -80,14 +80,14 @@ export default function GraphicProjects() {
           <motion.img 
             src="/images/clouds/cloud-1.webp"
             className="floating-cloud"
-            style={{ width: '40vw', top: '10%', left: '-10%', zIndex: 0 }}
+            style={{ width: '576px', top: '10%', left: '-10%', zIndex: 0 }}
             animate={{ x: [0, 50, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
           />
           <motion.img 
             src="/images/clouds/cloud-2.webp"
             className="floating-cloud"
-            style={{ width: '30vw', bottom: '10%', right: '-5%', zIndex: 0 }}
+            style={{ width: '432px', bottom: '10%', right: '-5%', zIndex: 0 }}
             animate={{ x: [0, -40, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
           />
@@ -110,11 +110,10 @@ export default function GraphicProjects() {
             </div>
           </motion.div>
       </div>
+      </FixedArtboard>
 
       {/* 
         Project 01: Rafiqi Branding 
-        Sits right beneath the Work section (Meadow transition),
-        starting natively with its Dark Navy scene.
       */}
       <RafiqiCaseStudy />
 
@@ -124,20 +123,6 @@ export default function GraphicProjects() {
       <InkMilkCaseStudy />
 
       <style>{`
-        .carousel-wrapper {
-          width: 65vw;
-          max-width: 700px;
-          margin: 0 auto;
-        }
-        .kaka-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 2vw;
-          padding: 0 2vw;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-        
         /* Graphic Typography Header CSS */
         .graphic-typo-header {
           position: relative;
@@ -151,9 +136,9 @@ export default function GraphicProjects() {
         }
         .layer-typo {
           position: relative;
-          width: 85vw;
+          width: 1224px;
           max-width: 850px;
-          height: 25vw;
+          height: 360px;
           max-height: 250px;
           animation: typoFloat 9s ease-in-out infinite alternate;
           z-index: 20;
@@ -194,22 +179,22 @@ export default function GraphicProjects() {
         }
         .typo-liquid-wave {
           position: absolute;
-          width: 250vw;
-          height: 250vw;
+          width: 3600px;
+          height: 3600px;
           left: 50%;
-          top: -5vw;
-          margin-left: -125vw;
+          top: -72px;
+          margin-left: -1800px;
           background: rgba(255, 255, 255, 0.95);
           border-radius: 40%;
           animation: liquidSpin 10s linear infinite;
         }
         .typo-liquid-wave2 {
           position: absolute;
-          width: 250vw;
-          height: 250vw;
+          width: 3600px;
+          height: 3600px;
           left: 50%;
-          top: -8vw;
-          margin-left: -125vw;
+          top: -115.2px;
+          margin-left: -1800px;
           background: rgba(45, 212, 191, 0.85);
           border-radius: 43%;
           animation: liquidSpin 14s linear infinite;
@@ -251,63 +236,43 @@ export default function GraphicProjects() {
           pointer-events: none;
         }
 
-        @media (min-width: 768px) {
-          .kaka-grid {
-            grid-template-columns: 1fr 1fr;
+        .six-carousels-grid {
+          width: 100%;
+          max-width: 1800px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          padding: 0 16px;
+        }
+
+        @media (max-width: 1024px) {
+          .six-carousels-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
-        @media (max-width: 1024px) {
-          .ambient-deco-left { left: 5%; width: 90px; }
-          .ambient-deco-right { right: 5%; width: 80px; }
-        }
+
         @media (max-width: 768px) {
-          .layer-typo { width: 90vw; height: 30vw; }
-          .carousel-wrapper { width: 90vw; }
-          .kaka-grid { gap: 4vw; padding: 0 4vw; }
+          .six-carousels-grid {
+            grid-template-columns: 1fr;
+            padding: 0 16px;
+          }
         }
+
       `}</style>
 
       {/* 
-        Project 03: Carousel Demo 1
+        FINAL CAROUSEL SECTION
+        A grid of 6 independent carousel components.
       */}
-      <div style={{ backgroundColor: '#020202', paddingBottom: '10vh' }}>
-        <div className="carousel-wrapper">
-          <GraphicCarousel images={carouselDemoImages} autoplayInterval={6000} />
-        </div>
-      </div>
-
-      {/* 
-        Project 04: Carousel Demo 2
-      */}
-      <div style={{ backgroundColor: '#020202', paddingBottom: '10vh' }}>
-        <div className="carousel-wrapper">
-          <GraphicCarousel images={carouselGroup2} autoplayInterval={6000} />
-        </div>
-      </div>
-
-      {/* 
-        Project 05: Carousel Demo 3
-      */}
-      <div style={{ backgroundColor: '#020202', paddingBottom: '10vh' }}>
-        <div className="carousel-wrapper">
-          <GraphicCarousel images={carouselGroup3} autoplayInterval={6000} />
-        </div>
-      </div>
-
-      {/* 
-        Project 06: Kaka Demo Layout
-      */}
-      <div style={{ backgroundColor: '#020202', paddingBottom: '10vh' }}>
-        <ProtectedImage useNative
-          src="/images/projects/project-06-kaka/banner.webp" 
-          alt="Kaka Banner" 
-          style={{ width: '100%', height: 'auto', display: 'block', marginBottom: '4vw' }} 
-        />
-        
-        <div className="kaka-grid">
-          <GraphicCarousel images={kakaCarousel1} autoplayInterval={5000} />
-          <GraphicCarousel images={kakaCarousel2} autoplayInterval={5000} />
-          <GraphicCarousel images={kakaCarousel3} autoplayInterval={5000} />
+      <div style={{ backgroundColor: 'var(--deep-cobalt)', padding: '10vh 0', flex: 1 }}>
+        <div className="six-carousels-grid">
+          <SocialGalleryCarousel images={carouselDemoImages} />
+          <SocialGalleryCarousel images={carouselGroup2} />
+          <SocialGalleryCarousel images={carouselGroup3} />
+          <SocialGalleryCarousel images={kakaCarousel1} />
+          <SocialGalleryCarousel images={kakaCarousel2} />
+          <SocialGalleryCarousel images={kakaCarousel3} />
         </div>
       </div>
 

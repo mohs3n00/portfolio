@@ -56,7 +56,7 @@
 .title {
   font-family: var(--font-head);
   font-weight: 900;
-  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-size: clamp(3.5rem, 129.6px, 9rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -106,6 +106,3 @@
   box-shadow: 0 8px 24px rgba(23,105,184,0.3);
 }
 
-@media (max-width: 768px) {
-  .section { padding: 7rem 0 4rem; }
-}

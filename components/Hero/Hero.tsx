@@ -141,6 +141,10 @@ export default function Hero() {
         </motion.div>
 
       </div>
+
+      {/* 8. BOTTOM SEAM COVER */}
+      <div className={styles.bottomCover}></div>
+
     </section>
   );
 }

@@ -17,7 +17,7 @@ export default function BrandApplication() {
   const yEffect = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   return (
-    <div ref={containerRef} style={{ width: '100%', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10vh 0', overflow: 'hidden' }}>
+    <div ref={containerRef} style={{ width: '100%', minHeight: '900px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '90px 0', overflow: 'hidden' }}>
       
       <motion.div 
         initial={{ opacity: 0 }}

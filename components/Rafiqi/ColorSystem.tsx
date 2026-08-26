@@ -19,7 +19,7 @@ export default function ColorSystem() {
   };
 
   return (
-    <div className="container" style={{ padding: '10vh 4vw', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <div className="container" style={{ padding: '90px clamp(16px, 4vw, 57.6px)', minHeight: '900px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -31,9 +31,9 @@ export default function ColorSystem() {
         <h3 style={{ fontSize: '3rem', fontWeight: 'bold' }}>Color & Typography</h3>
       </motion.div>
 
-      <div style={{ display: 'flex', gap: '4vw', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 'clamp(16px, 4vw, 57.6px)', flexWrap: 'wrap' }}>
         {/* Colors */}
-        <div style={{ flex: 2, display: 'flex', gap: '2vw' }}>
+        <div style={{ flex: 2, display: 'flex', gap: '28.8px' }}>
           {colors.map((color, i) => (
             <motion.div 
               key={color.hex}

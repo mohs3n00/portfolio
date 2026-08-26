@@ -29,9 +29,10 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={`${styles.nav} container`}>
-        {/* Logo */}
         <a href="#" className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <Image src="/images/logo.webp" alt="Mohsen" width={100} height={28} style={{ objectFit: 'contain', transform: 'scale(1.8)', transformOrigin: 'left center' }} />
+          <div className={styles.realLightning}>
+            <Image src="/images/logo.webp" alt="Mohsen" width={100} height={28} className={styles.logoImage} />
+          </div>
         </a>
 
         {/* Desktop links */}

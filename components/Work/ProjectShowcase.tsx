@@ -100,7 +100,7 @@ export default function ProjectShowcase({
               <img 
                 src={c.src} 
                 alt="" 
-                style={{ width: c.width || '40vw', minWidth: '300px', objectFit: 'contain' }} 
+                style={{ width: c.width || '576px', minWidth: '300px', objectFit: 'contain' }} 
                 loading="lazy" 
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />

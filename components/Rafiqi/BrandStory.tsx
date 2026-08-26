@@ -17,7 +17,7 @@ export default function BrandStory() {
   };
 
   return (
-    <div className="container" style={{ padding: '15vh 4vw', display: 'flex', flexDirection: 'column', direction: 'rtl' }}>
+    <div className="container" style={{ padding: '135px clamp(16px, 4vw, 57.6px)', display: 'flex', flexDirection: 'column', direction: 'rtl' }}>
       
       {/* Large logo independent element (using text placeholder but styled as a graphic) */}
       <motion.div 
@@ -25,7 +25,7 @@ export default function BrandStory() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 1 }}
-        style={{ marginBottom: '10vh', display: 'flex', justifyContent: 'flex-start' }}
+        style={{ marginBottom: '90px', display: 'flex', justifyContent: 'flex-start' }}
       >
         <ProtectedImage useNative
           src="/images/projects/rafiqi/typografy.webp" 
@@ -39,7 +39,7 @@ export default function BrandStory() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4vw' }}
+        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(16px, 4vw, 57.6px)' }}
       >
         {/* Column 1 */}
         <motion.div variants={itemVariants}>

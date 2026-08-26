@@ -186,7 +186,7 @@ export default function About() {
                     alt="Mohsen - Designer & Developer" 
                     fill 
                     style={{ objectFit: 'cover' }} 
-                    sizes="(max-width: 1024px) 100vw, 400px"
+                    sizes="(max-width: 1024px) 1440px, 400px"
                     priority
                   />
                   {/* Subtle atmospheric overlay */}

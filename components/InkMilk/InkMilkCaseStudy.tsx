@@ -20,28 +20,17 @@ export default function InkMilkCaseStudy() {
         margin: 0, 
         padding: 0, 
         gap: 0,
-        backgroundColor: '#020202' // Dark fallback behind images
+        backgroundColor: 'var(--deep-cobalt)' // Dark fallback behind images
       }}
     >
       <style>{`
         .inkmilk-image {
-          width: 85vw;
+          width: 100%;
           max-width: 1200px;
           height: auto;
           display: block;
           margin: 0;
           padding: 0;
-        }
-        @media (min-width: 768px) {
-          .inkmilk-image {
-            width: 80vw;
-          }
-        }
-        @media (min-width: 1024px) {
-          .inkmilk-image {
-            width: 75vw;
-            max-width: 1100px;
-          }
         }
       `}</style>
 

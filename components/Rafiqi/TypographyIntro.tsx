@@ -6,7 +6,7 @@ export default function TypographyIntro() {
   return (
     <div style={{
       width: '100%',
-      minHeight: '100vh',
+      minHeight: '900px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -16,9 +16,9 @@ export default function TypographyIntro() {
       {/* Container acting as the mask using the typography image */}
       <div style={{
         position: 'relative',
-        width: '80vw',
+        width: '1152px',
         maxWidth: '900px',
-        height: '40vw',
+        height: '576px',
         maxHeight: '400px',
         WebkitMaskImage: 'url(/images/projects/rafiqi/typografy.webp)',
         WebkitMaskSize: 'contain',

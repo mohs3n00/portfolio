@@ -182,9 +182,9 @@ export default function Work() {
         <ProjectShowcase 
           project={projectsData[0]}
           clouds={[
-            { src: '/images/clouds/cloud-1.webp', x: ['-50vw', '120vw'], y: ['15vh', '15vh'], duration: 12, width: '45vw', opacity: 0.8 },
-            { src: '/images/clouds/cloud-2.webp', x: ['120vw', '-50vw'], y: ['65vh', '65vh'], duration: 18, width: '35vw', opacity: 0.6, depth: -1 },
-            { src: '/images/clouds/cloud-3.webp', x: ['-40vw', '120vw'], y: ['40vh', '45vh'], duration: 25, width: '25vw', opacity: 0.7, delay: 2 }
+            { src: '/images/clouds/cloud-1.webp', x: ['-720px', '1728px'], y: ['15vh', '15vh'], duration: 12, width: '648px', opacity: 0.8 },
+            { src: '/images/clouds/cloud-2.webp', x: ['1728px', '-720px'], y: ['65vh', '65vh'], duration: 18, width: '504px', opacity: 0.6, depth: -1 },
+            { src: '/images/clouds/cloud-3.webp', x: ['-576px', '1728px'], y: ['40vh', '45vh'], duration: 25, width: '360px', opacity: 0.7, delay: 2 }
           ]}
           stickers={[
             { src: '/images/stickers/pink-heart.webp', width: 60, height: 60, positionClass: 'posTopCenter', rotation: -15, entranceDelay: 0.1, animationType: 'fadeScale' },
@@ -201,9 +201,9 @@ export default function Work() {
           project={projectsData[1]}
           alignment="alignRight"
           clouds={[
-            { src: '/images/clouds/cloud-4.webp', x: ['120vw', '-50vw'], y: ['10vh', '15vh'], duration: 14, width: '40vw', opacity: 0.8 },
-            { src: '/images/clouds/cloud-1.webp', x: ['-60vw', '120vw'], y: ['70vh', '75vh'], duration: 10, width: '50vw', opacity: 0.7, depth: -1 },
-            { src: '/images/clouds/cloud-2.webp', x: ['120vw', '-40vw'], y: ['35vh', '30vh'], duration: 22, width: '30vw', opacity: 0.9, delay: 3 }
+            { src: '/images/clouds/cloud-4.webp', x: ['1728px', '-720px'], y: ['10vh', '15vh'], duration: 14, width: '576px', opacity: 0.8 },
+            { src: '/images/clouds/cloud-1.webp', x: ['-864px', '1728px'], y: ['70vh', '75vh'], duration: 10, width: '720px', opacity: 0.7, depth: -1 },
+            { src: '/images/clouds/cloud-2.webp', x: ['1728px', '-576px'], y: ['35vh', '30vh'], duration: 22, width: '432px', opacity: 0.9, delay: 3 }
           ]}
           stickers={[
             { src: '/images/stickers/cloud-sync.webp', width: 80, height: 80, positionClass: 'posTopLeft', rotation: -10, entranceDelay: 0.2, animationType: 'float' },
@@ -219,9 +219,9 @@ export default function Work() {
         <ProjectShowcase 
           project={projectsData[2]}
           clouds={[
-            { src: '/images/clouds/cloud-2.webp', x: ['-50vw', '120vw'], y: ['8vh', '12vh'], duration: 13, width: '40vw', opacity: 0.8 },
-            { src: '/images/clouds/cloud-3.webp', x: ['120vw', '-50vw'], y: ['85vh', '80vh'], duration: 17, width: '35vw', opacity: 0.7, depth: -1 },
-            { src: '/images/clouds/cloud-4.webp', x: ['-60vw', '120vw'], y: ['50vh', '45vh'], duration: 11, width: '45vw', opacity: 0.6, delay: 2 }
+            { src: '/images/clouds/cloud-2.webp', x: ['-720px', '1728px'], y: ['8vh', '12vh'], duration: 13, width: '576px', opacity: 0.8 },
+            { src: '/images/clouds/cloud-3.webp', x: ['1728px', '-720px'], y: ['85vh', '80vh'], duration: 17, width: '504px', opacity: 0.7, depth: -1 },
+            { src: '/images/clouds/cloud-4.webp', x: ['-864px', '1728px'], y: ['50vh', '45vh'], duration: 11, width: '648px', opacity: 0.6, delay: 2 }
           ]}
           stickers={[
             { src: '/images/stickers/web-window.webp', width: 100, height: 100, positionClass: 'posTopCenter', rotation: -8, entranceDelay: 0.3, animationType: 'fadeScale' },
@@ -238,9 +238,9 @@ export default function Work() {
           project={projectsData[3]}
           alignment="alignRight"
           clouds={[
-            { src: '/images/clouds/cloud-1.webp', x: ['120vw', '-60vw'], y: ['12vh', '15vh'], duration: 12, width: '45vw', opacity: 0.8 },
-            { src: '/images/clouds/cloud-4.webp', x: ['-50vw', '120vw'], y: ['75vh', '70vh'], duration: 18, width: '35vw', opacity: 0.9, depth: -1 },
-            { src: '/images/clouds/cloud-3.webp', x: ['120vw', '-40vw'], y: ['35vh', '40vh'], duration: 26, width: '25vw', opacity: 0.7, delay: 1 }
+            { src: '/images/clouds/cloud-1.webp', x: ['1728px', '-864px'], y: ['12vh', '15vh'], duration: 12, width: '648px', opacity: 0.8 },
+            { src: '/images/clouds/cloud-4.webp', x: ['-720px', '1728px'], y: ['75vh', '70vh'], duration: 18, width: '504px', opacity: 0.9, depth: -1 },
+            { src: '/images/clouds/cloud-3.webp', x: ['1728px', '-576px'], y: ['35vh', '40vh'], duration: 26, width: '360px', opacity: 0.7, delay: 1 }
           ]}
           stickers={[
             { src: '/images/stickers/design-code-create.webp', width: 70, height: 70, positionClass: 'posTopLeft', rotation: -12, entranceDelay: 0.1, animationType: 'fadeScale' },

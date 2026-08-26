@@ -22,7 +22,7 @@
 .title {
   font-family: var(--font-head);
   font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-size: clamp(3.5rem, 115.2px, 8rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -136,18 +136,4 @@
   background: var(--sky-blue);
 }
 
-@media (max-width: 768px) {
-  .rowTitleWrap {
-    gap: 1rem;
-  }
-  .rowTitle {
-    font-size: 1.5rem;
-  }
-  .rowDetails {
-    padding-left: 0;
-  }
-  .listItem {
-    padding: 2rem 0;
-  }
-}
 

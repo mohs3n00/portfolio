@@ -17,10 +17,10 @@ export default function WebHero() {
   return (
     <div ref={ref} style={{
       width: '100%',
-      minHeight: '100vh',
+      minHeight: '900px',
       display: 'flex',
       flexDirection: 'column',
-      padding: '4vw',
+      padding: 'clamp(16px, 4vw, 57.6px)',
       position: 'relative'
     }}>
       {/* Top Navigation */}
@@ -68,7 +68,7 @@ export default function WebHero() {
         justifyContent: 'space-between',
         position: 'relative',
         zIndex: 10,
-        marginTop: '10vh'
+        marginTop: '90px'
       }}>
         {/* Typography Left */}
         <div style={{ flex: 1, maxWidth: '600px' }}>

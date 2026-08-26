@@ -37,7 +37,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: -1.2rem;
 }
+
+.logoImage {
+  object-fit: contain;
+  transform: scale(2.4);
+  transform-origin: left center;
+}
+
 
 .brandIcon {
   width: 20px;
@@ -47,7 +55,37 @@
   transform: rotate(10deg);
 }
 
-.logo:hover { color: var(--sky-blue); }
+@keyframes trueLightning {
+  0%, 94% {
+    filter: none;
+    transform: translateX(0) scale(1);
+  }
+  95% {
+    filter: brightness(3) contrast(1.5) drop-shadow(0 0 20px #72D6F2) drop-shadow(0 0 40px #ffffff);
+    transform: translateX(-1px) scale(1.02);
+  }
+  96% {
+    filter: brightness(0.5);
+    transform: translateX(1px) scale(0.98);
+  }
+  97% {
+    filter: brightness(4) contrast(2) drop-shadow(0 0 30px #168DFF) drop-shadow(0 0 50px #ffffff);
+    transform: translateX(-2px) scale(1.05);
+  }
+  98% {
+    filter: brightness(1) drop-shadow(0 0 10px #168DFF);
+    transform: translateX(1px) scale(1.0);
+  }
+  100% {
+    filter: none;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.realLightning {
+  display: inline-block;
+  animation: trueLightning 4s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
 .links {
   display: flex;
@@ -125,13 +163,14 @@
   display: none;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease;
 }
 .mobileOpen {
   max-height: 400px;
+  padding: 1.5rem;
   padding-bottom: 2rem;
 }
 
@@ -167,8 +206,90 @@
 .mobileCta:hover { background: var(--electric-blue); }
 
 @media (max-width: 768px) {
-  .links, .cta { display: none; }
-  .hamburger { display: flex; }
-  .mobileMenu { display: flex; }
-  .header { top: 0.75rem; width: calc(100% - 1.5rem); }
+  /* 1. Header/Navbar wrapper must be 56-64px tall */
+  .header { 
+    top: 12px; 
+    left: 12px;
+    right: 12px;
+    width: calc(100% - 24px); 
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    transform: none; /* override desktop translate */
+    border-radius: 30px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 2. Nav container must fit exactly inside the 60px height */
+  .nav { 
+    height: 100%;
+    width: 100%;
+    padding: 0 16px !important; 
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* 3. Logo must be compact */
+  .logo {
+    margin: 0 !important;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logoImage {
+    transform: none !important;
+    width: 32px;
+    height: auto;
+    object-fit: contain;
+  }
+  .realLightning {
+    animation: none; /* optional: save mobile battery/performance if desired, but not strictly requested. Kept default. */
+    display: flex;
+    align-items: center;
+  }
+
+  /* 4. Hide desktop elements */
+  .links, .cta { display: none !important; }
+  
+  /* 5. Hamburger Menu */
+  .hamburger { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    width: 44px; /* Apple touch target size */
+    height: 44px;
+    padding: 10px; /* leaves 24px for the visual icon */
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 6. Mobile Menu Overlay (when open) */
+  .mobileMenu { 
+    display: flex; 
+    /* Position below the 60px navbar */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(7, 26, 50, 0.95);
+    border-radius: 16px;
+    border: 1px solid var(--border-em);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease, opacity 0.3s ease;
+  }
+  .mobileOpen {
+    max-height: 400px;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

@@ -10,17 +10,21 @@ const Contact = dynamic(() => import('@/components/Contact/Contact'));
 const GraphicProjects = dynamic(() => import('@/components/GraphicProjects/GraphicProjects'));
 const Footer = dynamic(() => import('@/components/Footer/Footer'));
 
+import FixedArtboard from '@/components/FixedArtboard/FixedArtboard';
+
 export default function Home() {
   return (
     <>
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Work />
+        <FixedArtboard artboardWidth={1440}><Hero /></FixedArtboard>
+        <div style={{ marginTop: '-4px', position: 'relative', zIndex: 2 }}>
+          <FixedArtboard artboardWidth={1440}><About /></FixedArtboard>
+        </div>
+        <FixedArtboard artboardWidth={1440}><Work /></FixedArtboard>
         <GraphicProjects />
-        <Services />
-        <Contact />
+        <FixedArtboard artboardWidth={1440}><Services /></FixedArtboard>
+        <FixedArtboard artboardWidth={1440}><Contact /></FixedArtboard>
       </main>
       <Footer />
     </>

@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 900px;
   /* Atmospheric sky background using the provided image */
   background-image: url('/images/paper/skaycolor.webp');
   background-size: cover;
@@ -29,7 +29,7 @@
   position: relative;
   width: 100%;
   z-index: 10;
-  padding-bottom: 25vw; /* Make room for the meadow transition so it doesn't overlap content */
+  padding-bottom: 360px; /* Make room for the meadow transition so it doesn't overlap content */
 }
 
 /* ── LOGO STRIP ───────────────────────────────────────────────────── */
@@ -96,9 +96,9 @@
 
 .layerTypo {
   position: relative;
-  width: 85vw;
+  width: 1224px;
   max-width: 850px;
-  height: 25vw;
+  height: 360px;
   max-height: 250px;
   animation: typoFloat 9s ease-in-out infinite alternate;
 }
@@ -143,11 +143,11 @@
 
 .typoLiquidWave {
   position: absolute;
-  width: 250vw;
-  height: 250vw;
+  width: 3600px;
+  height: 3600px;
   left: 50%;
-  top: -5vw;
-  margin-left: -125vw;
+  top: -72px;
+  margin-left: -1800px;
   background: rgba(255, 255, 255, 0.95); /* High contrast white */
   border-radius: 40%;
   animation: liquidSpin 10s linear infinite;
@@ -155,11 +155,11 @@
 
 .typoLiquidWave2 {
   position: absolute;
-  width: 250vw;
-  height: 250vw;
+  width: 3600px;
+  height: 3600px;
   left: 50%;
-  top: -8vw;
-  margin-left: -125vw;
+  top: -115.2px;
+  margin-left: -1800px;
   background: rgba(45, 212, 191, 0.85); /* Greenish blue (Teal) */
   border-radius: 43%;
   animation: liquidSpin 14s linear infinite;
@@ -200,25 +200,12 @@
   pointer-events: none;
   filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
 }
-
-/* Responsive constraints */
-@media (max-width: 1024px) {
-  .ambientDecoLeft {
-    left: 5%;
-    width: 90px;
-  }
-  .ambientDecoRight {
-    right: 5%;
-    width: 80px;
-  }
-}
-
 /* ── MEADOW TRANSITION ────────────────────────────────────────────── */
 .meadowTransition {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100vw;
+  width: 1440px;
   max-width: 100%;
   height: auto;
   z-index: 5; /* Above background/video, behind project content */
@@ -228,25 +215,10 @@
 }
 
 .meadowTransition img {
-  width: 100vw;
+  width: 1440px;
   max-width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
   object-position: bottom;
-}
-
-@media (max-width: 768px) {
-  .logoStripWrapper {
-    gap: 20px;
-    padding: 12px 24px;
-  }
-  .logoItem {
-    width: 50px;
-    height: 50px;
-  }
-  .layerTypo {
-    width: 90vw;
-    height: 30vw;
-  }
 }

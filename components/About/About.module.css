@@ -48,13 +48,13 @@
   mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
 }
 
-.cloud1 { width: 40vw; height: 40vw; top: 10%; left: -30%; animation: drift 50s linear infinite; opacity: 0.7; }
-.cloud2 { width: 30vw; height: 30vw; top: 60%; left: -20%; animation: drift 40s linear infinite 5s; opacity: 0.5; }
-.cloud3 { width: 50vw; height: 50vw; top: -10%; left: -40%; animation: drift 60s linear infinite 12s; opacity: 0.6; }
+.cloud1 { width: 576px; height: 576px; top: 10%; left: -30%; animation: drift 50s linear infinite; opacity: 0.7; }
+.cloud2 { width: 432px; height: 432px; top: 60%; left: -20%; animation: drift 40s linear infinite 5s; opacity: 0.5; }
+.cloud3 { width: 720px; height: 720px; top: -10%; left: -40%; animation: drift 60s linear infinite 12s; opacity: 0.6; }
 
 @keyframes drift {
   0% { transform: translateX(0); }
-  100% { transform: translateX(150vw); }
+  100% { transform: translateX(2160px); }
 }
 
 
@@ -77,7 +77,7 @@
 .title {
   font-family: var(--font-head);
   font-weight: 900;
-  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-size: clamp(3rem, 86.4px, 6.5rem);
   line-height: 0.92;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -249,14 +249,3 @@
   color: #64748b;
 }
 
-@media (max-width: 1024px) {
-  .inner { grid-template-columns: 1fr; gap: 4rem; }
-  .portrait { width: 100%; max-width: 380px; aspect-ratio: 4 / 5; height: auto; margin: 0 auto; }
-  .visual { justify-content: center; }
-  .statCard1 { right: 0; }
-  .statCard2 { left: 0; }
-}
-
-@media (max-width: 600px) {
-  .section { padding: 5rem 0; }
-}

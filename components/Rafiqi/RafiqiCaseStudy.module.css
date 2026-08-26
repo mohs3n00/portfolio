@@ -19,7 +19,7 @@
   z-index: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 4vw;
+  padding: 0 57.6px;
 }
 
 .gridLine {
@@ -46,8 +46,17 @@
 .container {
   width: 100%;
   max-width: 1400px;
-  padding: 0 4vw;
+  padding: 0 57.6px;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .gridOverlay {
+    padding: 0 16px;
+  }
+  .container {
+    padding: 0 16px;
+  }
 }
 
 /* Helper utility for transitions between light/dark */

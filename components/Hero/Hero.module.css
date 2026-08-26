@@ -7,7 +7,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100svh;
+  height: 900px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -22,17 +22,13 @@
 */
 .sceneCanvas {
   position: absolute;
-  /* Default to width-constrained (viewport is wider than 2752:1536) */
-  width: 100vw;
-  height: 55.8139vw; /* 1536 / 2752 * 100vw */
-}
-
-/* When viewport is taller than 2752:1536, switch to height-constrained */
-@media (max-aspect-ratio: 2752/1536) {
-  .sceneCanvas {
-    height: 100svh;
-    width: 179.1666svh; /* 2752 / 1536 * 100svh */
-  }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 900px;
+  width: 1612.5px; /* 2752 / 1536 * 900px */
+  max-width: none;
+  pointer-events: none;
 }
 
 /* 
@@ -82,7 +78,7 @@
 
 @keyframes drift {
   0% { transform: translateX(0); }
-  100% { transform: translateX(150vw); }
+  100% { transform: translateX(2160px); }
 }
 
 /* ── 3. TYPOGRAPHY ───────────────────────────────────────────────────── */
@@ -127,11 +123,11 @@
 
 .typoLiquidWave {
   position: absolute;
-  width: 250vw;
-  height: 250vw;
+  width: 3600px;
+  height: 3600px;
   left: 50%;
-  top: -5vw;
-  margin-left: -125vw;
+  top: -72px;
+  margin-left: -1800px;
   background: var(--electric-blue);
   border-radius: 40%;
   animation: liquidSpin 10s linear infinite;
@@ -139,11 +135,11 @@
 
 .typoLiquidWave2 {
   position: absolute;
-  width: 250vw;
-  height: 250vw;
+  width: 3600px;
+  height: 3600px;
   left: 50%;
-  top: -8vw;
-  margin-left: -125vw;
+  top: -115.2px;
+  margin-left: -1800px;
   background: var(--primary-cobalt);
   border-radius: 43%;
   animation: liquidSpin 14s linear infinite;
@@ -261,7 +257,7 @@
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% {
-    transform: translate(80vw, -120vh) rotate3d(1, 2, 1, 360deg);
+    transform: translate(1152px, -120vh) rotate3d(1, 2, 1, 360deg);
     opacity: 0;
   }
 }
@@ -275,12 +271,12 @@
 .microText {
   position: absolute;
   font-family: var(--font-display);
-  font-size: clamp(10px, 0.8vw, 14px);
+  font-size: clamp(10px, 11.5px, 14px);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
-  padding: 2vw;
+  padding: 28.8px;
 }
 
 .microTopLeft { top: 0; left: 0; }
@@ -319,14 +315,17 @@
   transform: rotate(5deg);
 }
 
-@media (max-width: 768px) {
-  .stickerCoffee { left: calc(50% - 40vw); top: 15%; }
-  .stickerSmiley { right: calc(50% - 40vw); top: 25%; }
-  .stickerRockOn { left: calc(50% - 35vw); bottom: 35%; }
-  .stickerPlanet { right: calc(50% - 35vw); bottom: 25%; }
-}
 
 /* ── DEBUG UTILS ─────────────────────────────────────────────────────── */
-.debugCanvas {
-  outline: 2px dashed red;
+
+
+.bottomCover {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  z-index: 20;
+  background: url('/images/hero-new/sky.webp') center top / cover no-repeat;
+  pointer-events: none;
 }

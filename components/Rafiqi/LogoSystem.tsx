@@ -13,7 +13,7 @@ export default function LogoSystem() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div style={{ width: '100%', padding: '15vh 0', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ width: '100%', padding: '135px 0', minHeight: '900px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function LogoSystem() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         style={{
-          width: 'min(1400px, max(85vw, calc(100vw - 32px)))',
+          width: 'min(1400px, max(1224px, calc(1440px - 32px)))',
           aspectRatio: '16/9',
           position: 'relative',
           borderRadius: '24px',

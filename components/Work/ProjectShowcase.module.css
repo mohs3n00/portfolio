@@ -32,7 +32,7 @@
 /* ── PROJECT PRESENTATION SCENE ── */
 .sceneGrid {
   position: relative;
-  width: 85vw;
+  width: 1224px;
   max-width: 1300px;
   display: grid;
   grid-template-columns: 1fr 1.2fr; /* Asymmetric split */
@@ -153,53 +153,6 @@
   z-index: 25;
 }
 
-/* Handle mobile layout */
-@media (max-width: 1024px) {
-  .sceneGrid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    width: 90vw;
-  }
-  
-  .sceneGrid.alignRight .infoColumn {
-    order: 1; /* Reset order on mobile to always text first */
-  }
-  .sceneGrid.alignRight .showcaseColumn {
-    order: 2;
-  }
-  
-  .infoColumn {
-    align-items: center;
-    text-align: center;
-  }
-  
-  .projectTitle {
-    font-size: 2.5rem;
-  }
-  
-  .projectDescription {
-    font-size: 1.1rem;
-    max-width: 600px;
-    padding: 1.25rem;
-  }
-
-  .techStack {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .projectTitle {
-    font-size: 2rem;
-  }
-  
-  .projectIcon {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 20px;
-  }
-}
-
 /* ── AMBIENT ELEMENTS ── */
 .ambientWrapper {
   position: absolute;
@@ -229,36 +182,21 @@
 
 /* Sticker Sizes */
 .ambientWrapper img {
-  width: 15vw;
+  width: 216px;
   height: auto;
   object-fit: contain;
   max-width: 150px;
   min-width: 80px;
 }
 .stickerMedium img {
-  width: 22vw;
+  width: 316.8px;
   max-width: 200px;
   min-width: 100px;
 }
 .stickerLarge img {
-  width: 30vw;
+  width: 432px;
   max-width: 300px;
   min-width: 150px;
-}
-
-@media (max-width: 768px) {
-  .ambientWrapper img {
-    width: 25vw;
-    max-width: 100px;
-  }
-  .stickerMedium img {
-    width: 35vw;
-    max-width: 140px;
-  }
-  .stickerLarge img {
-    width: 45vw;
-    max-width: 180px;
-  }
 }
 
 /* -- Project Stickers -- */
@@ -275,24 +213,3 @@
 .posBottomRight { bottom: -40px; right: -40px; }
 .posMidLeft { top: 50%; left: -50px; margin-top: -30px; }
 .posMidRight { top: 50%; right: -50px; margin-top: -30px; }
-
-@media (max-width: 1024px) {
-  .posTopCenter { top: -20px; left: 75%; }
-  .posBottomCenter { bottom: 150px; left: -20px; }
-  .posMidRight { top: 60%; right: -20px; }
-}
-
-@media (max-width: 768px) {
-  .posTopLeft { top: -20px; left: -10px; }
-  .posTopRight { top: -20px; right: -10px; }
-  .posBottomLeft { bottom: -20px; left: -10px; }
-  .posBottomRight { bottom: -20px; right: -10px; }
-  
-  /* Hide the in-between ones to prevent clutter on mobile */
-  .posTopCenter,
-  .posBottomCenter,
-  .posMidLeft,
-  .posMidRight {
-    display: none !important;
-  }
-}
