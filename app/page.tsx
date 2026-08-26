@@ -1,11 +1,14 @@
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar/Navbar';
 import Hero from '@/components/Hero/Hero';
-import Work from '@/components/Work/Work';
-import Services from '@/components/Services/Services';
-import About from '@/components/About/About';
-import Contact from '@/components/Contact/Contact';
-import Footer from '@/components/Footer/Footer';
-import GraphicProjects from '@/components/GraphicProjects/GraphicProjects';
+
+// Dynamically import everything below the fold
+const About = dynamic(() => import('@/components/About/About'));
+const Work = dynamic(() => import('@/components/Work/Work'));
+const Services = dynamic(() => import('@/components/Services/Services'));
+const Contact = dynamic(() => import('@/components/Contact/Contact'));
+const GraphicProjects = dynamic(() => import('@/components/GraphicProjects/GraphicProjects'));
+const Footer = dynamic(() => import('@/components/Footer/Footer'));
 
 export default function Home() {
   return (

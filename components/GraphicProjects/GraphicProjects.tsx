@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import RafiqiCaseStudy from '../Rafiqi/RafiqiCaseStudy';
-import InkMilkCaseStudy from '../InkMilk/InkMilkCaseStudy';
-import GraphicCarousel from '../GraphicCarousel/GraphicCarousel';
+import dynamic from 'next/dynamic';
 import ProtectedImage from '../ProtectedMedia/ProtectedImage';
+
+const RafiqiCaseStudy = dynamic(() => import('../Rafiqi/RafiqiCaseStudy'));
+const InkMilkCaseStudy = dynamic(() => import('../InkMilk/InkMilkCaseStudy'));
+const GraphicCarousel = dynamic(() => import('../GraphicCarousel/GraphicCarousel'));
 // Future graphic projects will be imported here:
-// import GraphicProject02 from '../GraphicProject02/GraphicProject02';
+// const GraphicProject02 = dynamic(() => import('../GraphicProject02/GraphicProject02'));
 
 export default function GraphicProjects() {
   const carouselDemoImages = [
@@ -260,6 +262,8 @@ export default function GraphicProjects() {
         }
         @media (max-width: 768px) {
           .layer-typo { width: 90vw; height: 30vw; }
+          .carousel-wrapper { width: 90vw; }
+          .kaka-grid { gap: 4vw; padding: 0 4vw; }
         }
       `}</style>
 

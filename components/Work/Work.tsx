@@ -1,7 +1,8 @@
 'use client';
 import styles from './Work.module.css';
 import ProjectShowcase, { ProjectData } from './ProjectShowcase';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 import MeadowBees from './MeadowBees';
 import ProtectedImage from '../ProtectedMedia/ProtectedImage';
 
@@ -95,16 +96,30 @@ const projectsData: ProjectData[] = [
 ];
 
 export default function Work() {
+  const containerRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(containerRef, { margin: "200px" });
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+    if (isInView) {
+      videoRef.current.play().catch(() => {});
+    } else {
+      videoRef.current.pause();
+    }
+  }, [isInView]);
+
   return (
-    <section id="work" className={styles.section}>
+    <section id="work" className={styles.section} ref={containerRef}>
       {/* Global Sky Video Atmosphere */}
       <video 
+        ref={videoRef}
         src="/images/projects/sky-atmosphere.mp4" 
         className={styles.skyVideo} 
-        autoPlay 
         loop 
         muted 
         playsInline 
+        preload="metadata"
       />
 
       <div className={styles.content}>

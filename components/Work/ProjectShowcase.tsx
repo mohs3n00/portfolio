@@ -203,6 +203,9 @@ export default function ProjectShowcase({
               <img 
                 src={project.icon} 
                 alt={`${project.title} project icon`} 
+                width={90}
+                height={90}
+                loading="lazy"
                 onError={(e) => {
                   console.warn(`Missing project icon: ${project.icon}`);
                   e.currentTarget.style.display = 'none';

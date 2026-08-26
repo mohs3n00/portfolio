@@ -8,11 +8,13 @@ import ProtectedImage from '../ProtectedMedia/ProtectedImage';
 interface GraphicCarouselProps {
   images: string[];
   autoplayInterval?: number;
+  aspectRatio?: string;
 }
 
 export default function GraphicCarousel({ 
   images, 
-  autoplayInterval = 5000 
+  autoplayInterval = 5000,
+  aspectRatio = '16/9'
 }: GraphicCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -99,6 +101,7 @@ export default function GraphicCarousel({
           align-items: center;
           justify-content: center;
           overflow: hidden;
+          aspect-ratio: ${aspectRatio};
         }
         
         /* 
@@ -106,11 +109,7 @@ export default function GraphicCarousel({
           establish the container's height based on aspect ratio 
         */
         .carousel-dummy-img {
-          width: 100%;
-          height: auto;
-          visibility: hidden;
-          pointer-events: none;
-          display: block;
+          display: none;
         }
 
         .carousel-img {
@@ -131,13 +130,6 @@ export default function GraphicCarousel({
       `}</style>
 
       <div className="carousel-container">
-        {/* Dummy image to establish natural responsive height */}
-        <ProtectedImage useNative
-          src={images[0]} 
-          alt="Spacer" 
-          className="carousel-dummy-img" 
-        />
-        
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -163,6 +155,7 @@ export default function GraphicCarousel({
               alt={`Carousel Image ${currentIndex + 1}`}
               style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               blockInteraction={false} // Since we want framer-motion drag to work
+              loading={currentIndex === 0 ? "eager" : "lazy"}
             />
           </motion.div>
         </AnimatePresence>

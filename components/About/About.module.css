@@ -251,8 +251,8 @@
 
 @media (max-width: 1024px) {
   .inner { grid-template-columns: 1fr; gap: 4rem; }
-  .portrait { width: 100%; max-width: 380px; height: 420px; }
-  .visual { justify-content: flex-start; }
+  .portrait { width: 100%; max-width: 380px; aspect-ratio: 4 / 5; height: auto; margin: 0 auto; }
+  .visual { justify-content: center; }
   .statCard1 { right: 0; }
   .statCard2 { left: 0; }
 }

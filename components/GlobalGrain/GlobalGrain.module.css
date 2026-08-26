@@ -21,3 +21,9 @@
     opacity: 0.3;
   }
 }
+
+@media (max-width: 768px) {
+  .grainWrapper {
+    display: none;
+  }
+}

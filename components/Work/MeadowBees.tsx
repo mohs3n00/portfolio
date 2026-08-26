@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useScroll, useSpring, useTransform, useMotionValue } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useInView } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
 
 type BeeConfig = {
   id: string;
@@ -208,6 +208,8 @@ const Bee = ({
 export default function MeadowBees() {
   const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { margin: "200px" });
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -216,18 +218,25 @@ export default function MeadowBees() {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+    
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set((e.clientX / window.innerWidth) * 2 - 1);
       mouseY.set((e.clientY / window.innerHeight) * 2 - 1);
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isInView]);
 
   if (!mounted) return null;
 
   return (
     <div
+      ref={containerRef}
       style={{
         position: 'absolute',
         top: '-20%', // Extend slightly above meadow

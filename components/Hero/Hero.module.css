@@ -320,10 +320,10 @@
 }
 
 @media (max-width: 768px) {
-  .stickerCoffee { left: 5%; top: 20%; }
-  .stickerSmiley { right: 5%; top: 30%; }
-  .stickerRockOn { left: 5%; bottom: 35%; }
-  .stickerPlanet { right: 5%; bottom: 25%; }
+  .stickerCoffee { left: calc(50% - 40vw); top: 15%; }
+  .stickerSmiley { right: calc(50% - 40vw); top: 25%; }
+  .stickerRockOn { left: calc(50% - 35vw); bottom: 35%; }
+  .stickerPlanet { right: calc(50% - 35vw); bottom: 25%; }
 }
 
 /* ── DEBUG UTILS ─────────────────────────────────────────────────────── */
