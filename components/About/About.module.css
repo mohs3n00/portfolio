@@ -1,0 +1,262 @@
+.section {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  /* Dark navy and gradient removed, let the sky image show through via .sceneCanvas */
+}
+
+/* Background Scene containing the Sky and Clouds */
+.sceneCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.layerSky {
+  z-index: 1;
+}
+
+.imageAsset {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.layerClouds {
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen; /* Sky is bright, so maybe multiply or screen? Cloud asset is usually white on black if screen. */
+  /* If the sky is bright and cloud asset is white on black, screen will add white clouds. */
+}
+
+.cloud {
+  position: absolute;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+}
+
+.cloud1 { width: 40vw; height: 40vw; top: 10%; left: -30%; animation: drift 50s linear infinite; opacity: 0.7; }
+.cloud2 { width: 30vw; height: 30vw; top: 60%; left: -20%; animation: drift 40s linear infinite 5s; opacity: 0.5; }
+.cloud3 { width: 50vw; height: 50vw; top: -10%; left: -40%; animation: drift 60s linear infinite 12s; opacity: 0.6; }
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150vw); }
+}
+
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  position: relative;
+  z-index: 2; /* Content sits above scene canvas */
+}
+
+/* Left */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #0b1120; /* Dark Charcoal/Navy */
+  margin-top: 1rem;
+}
+
+.titleAccent {
+  color: var(--primary-cobalt, #1d4ed8);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.body p {
+  font-size: 1rem;
+  line-height: 1.78;
+  color: #334155; /* Dark gray */
+}
+
+.tagline {
+  font-family: var(--font-head) !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+  color: #0f172a !important; /* Dark navy */
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--electric-blue);
+  margin-top: 0.5rem !important;
+}
+
+/* Capabilities */
+.capsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.cap {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #475569;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--r-full);
+  transition: all 0.2s ease;
+}
+.cap:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Tools */
+.toolsWrap { }
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tool {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary-cobalt);
+  background: rgba(20, 141, 255, 0.08);
+  border: 1px solid rgba(20, 141, 255, 0.25);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--r-full);
+}
+
+/* Right — visual */
+.visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.portrait {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.portraitInner {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.portraitImgWrap {
+  position: absolute;
+  inset: -15px; /* Slight bleed to allow parallax */
+  transform-origin: center;
+  z-index: 1;
+}
+
+.gradeOverlay {
+  position: absolute;
+  inset: 0;
+  /* Light airy atmospheric grade for the bright sky scene */
+  background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0) 0%, rgba(135,206,250,0.1) 60%, rgba(135,206,250,0.3) 100%);
+  z-index: 2;
+  mix-blend-mode: color-burn;
+  pointer-events: none;
+}
+
+/* Floating stat cards */
+.statCard {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: var(--r-lg);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  animation: float-y 6s ease-in-out infinite;
+  z-index: 20;
+}
+
+.statCard1 {
+  top: 2rem;
+  right: -1.5rem;
+  animation-delay: 0s;
+}
+.statCard2 {
+  bottom: 3rem;
+  left: -1.5rem;
+  animation-delay: -3s;
+}
+
+.statNum {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+@media (max-width: 1024px) {
+  .inner { grid-template-columns: 1fr; gap: 4rem; }
+  .portrait { width: 100%; max-width: 380px; height: 420px; }
+  .visual { justify-content: flex-start; }
+  .statCard1 { right: 0; }
+  .statCard2 { left: 0; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 5rem 0; }
+}

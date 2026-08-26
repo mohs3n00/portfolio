@@ -1,26 +1,243 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
 
+/* ============================
+   DESIGN TOKENS
+   ============================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --primary-cobalt:  #1769B8;
+  --deep-cobalt:     #0B4F98;
+  --electric-blue:   #168DFF;
+  --sky-blue:        #72D6F2;
+  --bright-sky:      #A9E8FA;
+  --cloud-white:     #F7FBFF;
+  --soft-white:      #FFFFFF;
+  --deep-navy:       #071A32;
+  --muted-blue:      #6F9DBF;
+
+  /* Abstracted Semantic Colors */
+  --bg-dark:         var(--deep-navy);
+  --bg-light:        var(--bright-sky);
+  --fg:              var(--cloud-white); /* Base text is white on deep navy */
+  --fg-dark:         var(--deep-navy); /* Text for bright backgrounds */
+  --fg-muted:        var(--muted-blue);
+  --surface-dark:    #050e1f;
+  --border:          rgba(114, 214, 242, 0.2); /* sky-blue based border */
+  --border-em:       rgba(23, 105, 184, 0.18); /* cobalt based border */
+  --accent-cyan:     var(--electric-blue); 
+
+  /* Radius */
+  --r-sm:  12px;
+  --r-md:  20px;
+  --r-lg:  28px;
+  --r-xl:  36px;
+  --r-full: 9999px;
+
+  /* Shadows (Removed glow, kept physical shadow) */
+  --shadow-std:    0 15px 35px rgba(0,0,0,0.4);
+  --shadow-elevated: 0 25px 60px rgba(0,0,0,0.6);
+
+  /* Typography */
+  --font-display: 'Outfit', sans-serif;
+  --font-head:    'Outfit', sans-serif;
+  --font-body:    'Inter',  sans-serif;
+  --font-mono:    'Inter', sans-serif; /* fallback for tags */
+
+  /* Section materials */
+  --surface-matte:   var(--deep-navy); 
+  --surface-lifted:  var(--deep-cobalt);
+  --section-rule:    rgba(114, 214, 242, 0.1); /* Sky blue subtle line */
+
+  /* Motion Presets */
+  --ease-physical: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth:   cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================
+   RESET & BASE
+   ============================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--fg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient Utilities */
+.grad-sky-white {
+  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--bright-sky) 50%, var(--cloud-white) 100%);
+}
+
+.grad-cobalt-sky {
+  background: linear-gradient(180deg, var(--deep-cobalt) 0%, var(--primary-cobalt) 40%, var(--sky-blue) 100%);
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Global static grain replaced by React Bits GrainWave in layout.tsx */
+
+/* ============================
+   SCROLLBAR
+   ============================ */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted-blue-gray);
+  border-radius: var(--r-full);
+}
+
+/* ============================
+   TYPOGRAPHY UTILITIES
+   ============================ */
+.font-head { font-family: var(--font-head); }
+.font-body  { font-family: var(--font-body); }
+
+.text-display {
+  font-family: var(--font-head);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.text-headline {
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.text-label {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+/* ============================
+   LAYOUT UTILITIES
+   ============================ */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-pad {
+  padding: 8rem 0;
+}
+
+/* ============================
+   BUTTON SYSTEM
+   ============================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  background: var(--deep-navy); /* Dark navy base */
+  color: var(--cloud-white);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 12px; /* Slightly rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Refined border */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth 150-250ms transition */
+}
+.btn-primary:hover {
+  background: #111e30; /* Slightly lighter/brighter navy */
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--deep-navy);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-em);
+  transition: all 0.3s var(--ease-physical);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(23, 105, 184, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   SHARED KEYFRAMES
+   ============================ */
+@keyframes fade-up {
+  from { opacity:0; transform: translateY(24px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes float-y {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* ============================
+   REDUCED MOTION
+   ============================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================
+   SELECTION
+   ============================ */
+::selection {
+  background: var(--electric-blue);
+  color: #fff;
 }

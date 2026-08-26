@@ -1,0 +1,111 @@
+.section {
+  padding: 10rem 0 6rem;
+  background: linear-gradient(180deg, var(--sky-blue) 0%, var(--bright-sky) 40%, var(--cloud-white) 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skyCloudsContainer {
+  position: absolute;
+  inset: -100px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+.cloudWrapper {
+  position: absolute;
+  pointer-events: none;
+}
+
+.cloudDrift {
+  width: 100%;
+  height: 100%;
+  animation: cloud-drift-independent ease-in-out infinite;
+}
+
+.smallCloud {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+}
+
+@keyframes cloud-drift-independent {
+  0% { transform: translateX(0px) translateY(0px) scale(1); }
+  50% { transform: translateX(40px) translateY(-15px) scale(1.02); }
+  100% { transform: translateX(0px) translateY(0px) scale(1); }
+}
+
+.title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--deep-navy);
+}
+
+.titleAccent {
+  color: var(--primary-cobalt);
+}
+
+.sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--deep-cobalt);
+  max-width: 440px;
+}
+
+.emailBtn {
+  font-size: 0.9rem !important;
+  padding: 1rem 2rem !important;
+  gap: 0.75rem !important;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.social {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--r-full);
+  border: 1px solid rgba(23, 105, 184, 0.2); /* Cobalt border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-cobalt);
+  background: rgba(255,255,255,0.4);
+  transition: all 0.26s ease;
+}
+.social:hover {
+  background: var(--primary-cobalt);
+  color: var(--cloud-white);
+  border-color: var(--primary-cobalt);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(23,105,184,0.3);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 7rem 0 4rem; }
+}

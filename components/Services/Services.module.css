@@ -1,0 +1,153 @@
+.section {
+  padding: 8rem 0;
+  background: var(--deep-cobalt);
+  background-image: 
+    linear-gradient(rgba(114, 214, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(114, 214, 242, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background blob */
+/* Removed bgBlob since it looked too AI-generated */
+
+.header {
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin: 0.75rem 0 1.25rem;
+}
+
+.headerSub {
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── Editorial List Layout ── */
+.editorialList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(114, 214, 242, 0.15);
+}
+
+.listItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.rowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.rowTitleWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.rowNum {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+}
+
+.rowTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+}
+
+.listItem:hover .rowTitle {
+  transform: translateX(1rem);
+  color: var(--sky-blue);
+}
+
+.rowIcon {
+  opacity: 0.5;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.listItem:hover .rowIcon {
+  transform: rotate(-15deg);
+  opacity: 1;
+  color: var(--sky-blue);
+}
+
+.rowDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 3.5rem; /* align with title */
+  max-width: 600px;
+}
+
+.rowSub {
+  font-size: 1.125rem;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.rowDesc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.separator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(114, 214, 242, 0.15);
+
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.listItem:hover .separator {
+  transform: scaleX(1);
+  background: var(--sky-blue);
+}
+
+@media (max-width: 768px) {
+  .rowTitleWrap {
+    gap: 1rem;
+  }
+  .rowTitle {
+    font-size: 1.5rem;
+  }
+  .rowDetails {
+    padding-left: 0;
+  }
+  .listItem {
+    padding: 2rem 0;
+  }
+}
+

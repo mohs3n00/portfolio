@@ -1,0 +1,23 @@
+.interactionBlocker {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+  cursor: default;
+}
+
+.watermark {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.04;
+  background-image: url('/images/logo.png');
+  background-repeat: repeat;
+  background-size: 200px;
+  background-position: center;
+  mix-blend-mode: overlay;
+}

@@ -1,0 +1,332 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   HERO — NEW PHYSICAL SET SYSTEM (ONE ARTBOARD)
+   Native Resolution: 2752 x 1536
+   Aspect Ratio: 1.791666 (approx 16:9)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-light);
+}
+
+/* 
+  The single shared scene canvas.
+  It acts like object-fit: cover, but implemented via CSS dimensions 
+  so that children can just use width/height 100% and stay aligned.
+*/
+.sceneCanvas {
+  position: absolute;
+  /* Default to width-constrained (viewport is wider than 2752:1536) */
+  width: 100vw;
+  height: 55.8139vw; /* 1536 / 2752 * 100vw */
+}
+
+/* When viewport is taller than 2752:1536, switch to height-constrained */
+@media (max-aspect-ratio: 2752/1536) {
+  .sceneCanvas {
+    height: 100svh;
+    width: 179.1666svh; /* 2752 / 1536 * 100svh */
+  }
+}
+
+/* 
+  All layers share the exact same bounding box as the scene canvas.
+  This ensures absolute pixel-perfect registration.
+*/
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* We add a small scale overflow to the layers to hide any edges during parallax */
+  transform: scale(1.05);
+}
+
+.imageAsset {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── 1. SKY ──────────────────────────────────────────────────────────── */
+.layerSky {
+  z-index: 1;
+}
+
+/* ── 2. CLOUDS ───────────────────────────────────────────────────────── */
+.layerClouds {
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.cloud {
+  position: absolute;
+  /* Soften edges of the cloud asset using a radial mask */
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+}
+
+/* Positioning clouds relative to the 2752x1536 canvas */
+.cloud1 { width: 35%; height: 35%; top: 5%; left: -30%; animation: drift 40s linear infinite; opacity: 0.8; }
+.cloud2 { width: 25%; height: 25%; top: 40%; left: -20%; animation: drift 30s linear infinite 7s; opacity: 0.5; }
+.cloud3 { width: 45%; height: 45%; top: -5%; left: -40%; animation: drift 50s linear infinite 15s; opacity: 0.9; }
+.cloud4 { width: 20%; height: 20%; top: 60%; left: -20%; animation: drift 25s linear infinite 2s; opacity: 0.6; }
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150vw); }
+}
+
+/* ── 3. TYPOGRAPHY ───────────────────────────────────────────────────── */
+.layerTypo {
+  z-index: 3;
+  pointer-events: none;
+  animation: typoFloat 9s ease-in-out infinite alternate;
+}
+
+@keyframes typoFloat {
+  0% { transform: translateY(2px) translateX(-1px); }
+  100% { transform: translateY(-2px) translateX(1px); }
+}
+
+/* We use a mask over the typo to do the fill animation */
+.typoFilled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask-image: url('/images/hero-new/typo.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/images/hero-new/typo.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  transform: scale(1.02); /* Scale up slightly to completely cover the white edges of the base image */
+  transform-origin: center center;
+}
+
+.typoLiquidContainer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 100%;
+  transform: translateY(100%);
+  animation: organicRiseLoop 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  overflow: visible;
+}
+
+.typoLiquidWave {
+  position: absolute;
+  width: 250vw;
+  height: 250vw;
+  left: 50%;
+  top: -5vw;
+  margin-left: -125vw;
+  background: var(--electric-blue);
+  border-radius: 40%;
+  animation: liquidSpin 10s linear infinite;
+}
+
+.typoLiquidWave2 {
+  position: absolute;
+  width: 250vw;
+  height: 250vw;
+  left: 50%;
+  top: -8vw;
+  margin-left: -125vw;
+  background: var(--primary-cobalt);
+  border-radius: 43%;
+  animation: liquidSpin 14s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes liquidSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes organicRiseLoop {
+  0%   { transform: translateY(100%); opacity: 1; }
+  25%  { transform: translateY(-15%); opacity: 1; }
+  85%  { transform: translateY(-15%); opacity: 1; }
+  92%  { transform: translateY(-15%); opacity: 0; }
+  93%  { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(100%); opacity: 1; }
+}
+
+/* ── 4. STARS ────────────────────────────────────────────────────────── */
+.layerStars {
+  z-index: 4;
+  /* Sync exact base movement with typography */
+  animation: typoFloat 9s ease-in-out infinite alternate;
+}
+
+.star {
+  position: absolute;
+  width: 2%; /* Relative to the massive canvas */
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Approximate placement within the 2752x1536 canvas */
+.starLeft {
+  top: 20%;
+  left: 31%;
+  animation: starFloat1 5.5s ease-in-out infinite alternate;
+}
+
+.starRight {
+  top: 23%;
+  right: 29%;
+  animation: starFloat2 4.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes starFloat1 {
+  0% { transform: translate(-1px, 1px) scale(0.96) rotate(-1.5deg); opacity: 0.7; }
+  100% { transform: translate(1px, -1px) scale(1.04) rotate(1.5deg); opacity: 1; }
+}
+
+@keyframes starFloat2 {
+  0% { transform: translate(1px, -1px) scale(0.96) rotate(1.5deg); opacity: 0.7; }
+  100% { transform: translate(-1px, 1px) scale(1.04) rotate(-1.5deg); opacity: 1; }
+}
+
+/* ── 5. MOHAMED ──────────────────────────────────────────────────────── */
+.layerMohamed {
+  z-index: 5;
+  pointer-events: none;
+  animation: mohamedMicro 7s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+  /* Apply base scale before animation */
+  transform: scale(1.12);
+  top: 1.5%; /* Nudge down slightly */
+}
+
+@keyframes mohamedMicro {
+  0% { transform: scale(1.12) translateX(-2px) translateY(1px) rotate(-1.2deg); }
+  100% { transform: scale(1.12) translateX(2px) translateY(-0.5px) rotate(1.2deg); }
+}
+
+/* ── 6. BOX ──────────────────────────────────────────────────────────── */
+.layerBox {
+  z-index: 6;
+  pointer-events: none;
+  animation: boxSway 6s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+  /* Apply base scale before animation */
+  transform: scale(1.12);
+}
+
+@keyframes boxSway {
+  0% { transform: scale(1.12) translateX(-3px) translateY(5px) rotate(-1.5deg); }
+  100% { transform: scale(1.12) translateX(3px) translateY(-5px) rotate(1.5deg); }
+}
+
+/* ── 7. WIND / PAPER ─────────────────────────────────────────────────── */
+.layerWind {
+  z-index: 7;
+  pointer-events: none;
+  perspective: 1000px;
+}
+
+.paper {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 1px;
+}
+
+.paper1 { width: 45px; height: 60px; top: 120%; left: -10%; animation: paperFly 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+.paper2 { width: 30px; height: 30px; top: 100%; left: 30%; animation: paperFly 5s cubic-bezier(0.4, 0, 0.2, 1) infinite 2s; background: rgba(255,255,255,0.7); }
+.paper3 { width: 65px; height: 45px; top: 110%; left: 60%; animation: paperFly 7s cubic-bezier(0.4, 0, 0.2, 1) infinite 1s; }
+.paper4 { width: 25px; height: 40px; top: 130%; left: 10%; animation: paperFly 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 4s; }
+.paper5 { width: 35px; height: 25px; top: 125%; left: 40%; animation: paperFly 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 3s; background: rgba(255,255,255,0.8); }
+.paper6 { width: 20px; height: 35px; top: 115%; left: 80%; animation: paperFly 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite 5s; }
+
+@keyframes paperFly {
+  0% {
+    transform: translate(0, 0) rotate3d(1, 1, 1, 0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translate(80vw, -120vh) rotate3d(1, 2, 1, 360deg);
+    opacity: 0;
+  }
+}
+
+/* ── 8. MICRO TEXT ───────────────────────────────────────────────────── */
+.layerMicroText {
+  z-index: 8;
+  pointer-events: none;
+}
+
+.microText {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(10px, 0.8vw, 14px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  padding: 2vw;
+}
+
+.microTopLeft { top: 0; left: 0; }
+.microTopRight { top: 0; right: 0; }
+.microBottomLeft { bottom: 0; left: 0; }
+.microBottomRight {
+  bottom: 0;
+  right: 0;
+}
+
+/* STICKERS */
+.layerStickers {
+  pointer-events: none;
+}
+.heroSticker {
+  position: absolute;
+}
+.stickerCoffee {
+  top: 15%;
+  left: 20%;
+  transform: rotate(-10deg);
+}
+.stickerSmiley {
+  top: 25%;
+  right: 15%;
+  transform: rotate(15deg);
+}
+.stickerRockOn {
+  bottom: 30%;
+  left: 10%;
+  transform: rotate(-5deg);
+}
+.stickerPlanet {
+  bottom: 20%;
+  right: 25%;
+  transform: rotate(5deg);
+}
+
+@media (max-width: 768px) {
+  .stickerCoffee { left: 5%; top: 20%; }
+  .stickerSmiley { right: 5%; top: 30%; }
+  .stickerRockOn { left: 5%; bottom: 35%; }
+  .stickerPlanet { right: 5%; bottom: 25%; }
+}
+
+/* ── DEBUG UTILS ─────────────────────────────────────────────────────── */
+.debugCanvas {
+  outline: 2px dashed red;
+}
