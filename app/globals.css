@@ -1,4 +1,15 @@
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-300.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-700.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-800.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/fonts/outfit-900.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
 
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-300.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
 
 /* ============================
    DESIGN TOKENS
@@ -38,10 +49,10 @@
   --shadow-elevated: 0 25px 60px rgba(0,0,0,0.6);
 
   /* Typography */
-  --font-display: var(--font-outfit), sans-serif;
-  --font-head:    var(--font-outfit), sans-serif;
-  --font-body:    var(--font-inter),  sans-serif;
-  --font-mono:    var(--font-inter), sans-serif; /* fallback for tags */
+  --font-display: 'Outfit', sans-serif;
+  --font-head:    'Outfit', sans-serif;
+  --font-body:    'Inter',  sans-serif;
+  --font-mono:    'Inter', sans-serif; /* fallback for tags */
 
   /* Section materials */
   --surface-matte:   var(--deep-navy); 

@@ -97,29 +97,17 @@ const projectsData: ProjectData[] = [
 
 export default function Work() {
   const containerRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(containerRef, { margin: "200px" });
-
-  useEffect(() => {
-    if (!videoRef.current) return;
-    if (isInView) {
-      videoRef.current.play().catch(() => {});
-    } else {
-      videoRef.current.pause();
-    }
-  }, [isInView]);
 
   return (
     <section id="work" className={styles.section} ref={containerRef}>
-      {/* Global Sky Video Atmosphere */}
-      <video 
-        ref={videoRef}
-        src="/images/projects/sky-atmosphere.mp4" 
+      {/* Global Sky Video Atmosphere (Replaced with Static Image) */}
+      <ProtectedImage 
+        useNative
+        src="/images/hero-new/sky.webp" 
         className={styles.skyVideo} 
-        loop 
-        muted 
-        playsInline 
-        preload="metadata"
+        alt="Atmospheric Sky Background"
+        loading="lazy"
       />
 
       <div className={styles.content}>
