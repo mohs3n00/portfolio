@@ -14,7 +14,7 @@ export interface DualShowcaseProps {
 export default function DualShowcase({ webScreenshots, mobileScreenshots, projectTitle }: DualShowcaseProps) {
   const [activeView, setActiveView] = React.useState<'web' | 'mobile'>('web');
 
-  const transitionConfig = { duration: 0.3, ease: 'easeOut' };
+  const transitionConfig: any = { duration: 0.3, ease: 'easeOut' };
 
   return (
     <div className={styles.dualContainer}>

@@ -102,7 +102,7 @@ export default function Contact() {
                     <Image src={s.icon as string} alt={s.label} width={22} height={22} style={{ objectFit: 'contain' }} />
                   ) : (
                     (() => {
-                      const Icon = s.icon as React.ElementType;
+                      const Icon = s.icon as any;
                       return <Icon size={18} strokeWidth={2} />;
                     })()
                   )}

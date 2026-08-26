@@ -2,7 +2,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import styles from './ProjectShowcase.module.css';
-import { CloudConfig } from './Work';
 import WebShowcase from './WebShowcase';
 import MobileShowcase from './MobileShowcase';
 import DualShowcase from './DualShowcase';
