@@ -58,29 +58,29 @@ export default function Hero() {
 
         {/* 1. SKY */}
         <motion.div className={`${styles.layer} ${styles.layerSky}`} style={{ x: skyX, y: skyY }}>
-          <Image src="/images/hero-new/sky.jpg" alt="Sky" fill className={styles.imageAsset} priority />
+          <Image src="/images/hero-new/sky.webp" alt="Sky" fill className={styles.imageAsset} priority />
         </motion.div>
 
         {/* 2. CLOUDS */}
         <motion.div className={`${styles.layer} ${styles.layerClouds}`} style={{ x: cloudX, y: cloudY }}>
           <div className={`${styles.cloud} ${styles.cloud1}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
           <div className={`${styles.cloud} ${styles.cloud2}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
           <div className={`${styles.cloud} ${styles.cloud3}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
           <div className={`${styles.cloud} ${styles.cloud4}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
         </motion.div>
 
         {/* 3. PORTFOLIO TYPOGRAPHY */}
         <motion.div className={`${styles.layer} ${styles.layerTypo}`} style={{ x: typoX, y: typoY }}>
           {/* Faint base */}
-          <Image src="/images/hero-new/typo.png" alt="Portfolio" fill className={styles.imageAsset} priority />
+          <Image src="/images/hero-new/typo.webp" alt="Portfolio" fill className={styles.imageAsset} priority />
           {/* Liquid filled portion */}
           <div className={styles.typoFilled}>
               <div className={styles.typoLiquidContainer}>
@@ -103,30 +103,30 @@ export default function Hero() {
         {/* 4.5 STICKERS */}
         <motion.div className={`${styles.layer} ${styles.layerStickers}`} style={{ x: stickerX, y: stickerY, zIndex: 12 }}>
           <motion.div className={`${styles.heroSticker} ${styles.stickerCoffee}`} animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}>
-            <Image src="/images/stickers/coffee-cup.png" alt="" width={120} height={120} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
+            <Image src="/images/stickers/coffee-cup.webp" alt="" width={120} height={120} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
           </motion.div>
           
           <motion.div className={`${styles.heroSticker} ${styles.stickerSmiley}`} animate={{ y: [0, 15, 0], rotate: [-10, 5, -10] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}>
-            <Image src="/images/stickers/smiley.png" alt="" width={100} height={100} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
+            <Image src="/images/stickers/smiley.webp" alt="" width={100} height={100} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
           </motion.div>
 
           <motion.div className={`${styles.heroSticker} ${styles.stickerRockOn}`} animate={{ y: [0, -12, 0], rotate: [5, -5, 5] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}>
-            <Image src="/images/stickers/rock-on.png" alt="" width={140} height={140} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
+            <Image src="/images/stickers/rock-on.webp" alt="" width={140} height={140} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
           </motion.div>
 
           <motion.div className={`${styles.heroSticker} ${styles.stickerPlanet}`} animate={{ y: [0, 8, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}>
-            <Image src="/images/stickers/planet.png" alt="" width={110} height={110} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
+            <Image src="/images/stickers/planet.webp" alt="" width={110} height={110} style={{ objectFit: 'contain', filter: 'drop-shadow(0 15px 20px rgba(0,0,0,0.15))' }} />
           </motion.div>
         </motion.div>
 
         {/* 5. MOHAMED */}
         <motion.div className={`${styles.layer} ${styles.layerMohamed}`} style={{ x: mohamedX, y: mohamedY }}>
-          <Image src="/images/hero-new/me.png" alt="Mohamed" fill className={styles.imageAsset} priority />
+          <Image src="/images/hero-new/me.webp" alt="Mohamed" fill className={styles.imageAsset} priority />
         </motion.div>
 
         {/* 6. BOX */}
         <motion.div className={`${styles.layer} ${styles.layerBox}`} style={{ x: boxX, y: boxY }}>
-          <Image src="/images/hero-new/box.png" alt="Box" fill className={styles.imageAsset} priority />
+          <Image src="/images/hero-new/box.webp" alt="Box" fill className={styles.imageAsset} priority />
         </motion.div>
 
         {/* 7. WIND / PAPER */}

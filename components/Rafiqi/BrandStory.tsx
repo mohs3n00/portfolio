@@ -28,7 +28,7 @@ export default function BrandStory() {
         style={{ marginBottom: '10vh', display: 'flex', justifyContent: 'flex-start' }}
       >
         <ProtectedImage useNative
-          src="/images/projects/rafiqi/typografy.png" 
+          src="/images/projects/rafiqi/typografy.webp" 
           alt="Rafiqi Typography" 
           style={{ width: '100%', maxWidth: '500px', height: 'auto' }} 
         />

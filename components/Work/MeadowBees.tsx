@@ -187,7 +187,7 @@ const Bee = ({
             }}
           >
             <img
-              src="/images/projects/BEE.png"
+              src="/images/projects/BEE.webp"
               alt=""
               style={{
                 width: '55px', // Base size, scaled below

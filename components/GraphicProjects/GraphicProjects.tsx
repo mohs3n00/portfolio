@@ -11,44 +11,44 @@ import ProtectedImage from '../ProtectedMedia/ProtectedImage';
 
 export default function GraphicProjects() {
   const carouselDemoImages = [
-    '/images/projects/project-03-carousel/01.png',
-    '/images/projects/project-03-carousel/02.png',
-    '/images/projects/project-03-carousel/03.png',
-    '/images/projects/project-03-carousel/04.png'
+    '/images/projects/project-03-carousel/01.webp',
+    '/images/projects/project-03-carousel/02.webp',
+    '/images/projects/project-03-carousel/03.webp',
+    '/images/projects/project-03-carousel/04.webp'
   ];
 
   const carouselGroup2 = [
-    '/images/projects/project-04-carousel/01.png',
-    '/images/projects/project-04-carousel/02.png',
-    '/images/projects/project-04-carousel/03.png',
-    '/images/projects/project-04-carousel/04.png'
+    '/images/projects/project-04-carousel/01.webp',
+    '/images/projects/project-04-carousel/02.webp',
+    '/images/projects/project-04-carousel/03.webp',
+    '/images/projects/project-04-carousel/04.webp'
   ];
 
   const carouselGroup3 = [
-    '/images/projects/project-05-carousel/01.png',
-    '/images/projects/project-05-carousel/02.png',
-    '/images/projects/project-05-carousel/03.png'
+    '/images/projects/project-05-carousel/01.webp',
+    '/images/projects/project-05-carousel/02.webp',
+    '/images/projects/project-05-carousel/03.webp'
   ];
 
   const kakaCarousel1 = [
-    '/images/projects/project-06-kaka/carousel-1/01.jpg',
-    '/images/projects/project-06-kaka/carousel-1/02.jpg',
-    '/images/projects/project-06-kaka/carousel-1/03.png',
-    '/images/projects/project-06-kaka/carousel-1/04.jpg'
+    '/images/projects/project-06-kaka/carousel-1/01.webp',
+    '/images/projects/project-06-kaka/carousel-1/02.webp',
+    '/images/projects/project-06-kaka/carousel-1/03.webp',
+    '/images/projects/project-06-kaka/carousel-1/04.webp'
   ];
 
   const kakaCarousel2 = [
-    '/images/projects/project-06-kaka/carousel-2/01.jpg',
-    '/images/projects/project-06-kaka/carousel-2/02.jpg',
-    '/images/projects/project-06-kaka/carousel-2/03.png',
-    '/images/projects/project-06-kaka/carousel-2/04.jpg'
+    '/images/projects/project-06-kaka/carousel-2/01.webp',
+    '/images/projects/project-06-kaka/carousel-2/02.webp',
+    '/images/projects/project-06-kaka/carousel-2/03.webp',
+    '/images/projects/project-06-kaka/carousel-2/04.webp'
   ];
 
   const kakaCarousel3 = [
-    '/images/projects/project-06-kaka/carousel-3/01.png',
-    '/images/projects/project-06-kaka/carousel-3/02.jpg',
-    '/images/projects/project-06-kaka/carousel-3/03.png',
-    '/images/projects/project-06-kaka/carousel-3/04.png'
+    '/images/projects/project-06-kaka/carousel-3/01.webp',
+    '/images/projects/project-06-kaka/carousel-3/02.webp',
+    '/images/projects/project-06-kaka/carousel-3/03.webp',
+    '/images/projects/project-06-kaka/carousel-3/04.webp'
   ];
 
   return (
@@ -60,14 +60,14 @@ export default function GraphicProjects() {
       <div className="graphic-typo-header">
           {/* Ambient decorations filling the empty side spaces */}
           <motion.img 
-            src="/images/stickers/planet.png" 
+            src="/images/stickers/planet.webp" 
             className="ambient-deco-left" 
             alt="" 
             animate={{ y: [0, -20, 0], rotate: [0, 8, 0] }} 
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} 
           />
           <motion.img 
-            src="/images/stickers/smiley.png" 
+            src="/images/stickers/smiley.webp" 
             className="ambient-deco-right" 
             alt="" 
             animate={{ y: [0, 20, 0], rotate: [0, -12, 0] }} 
@@ -76,14 +76,14 @@ export default function GraphicProjects() {
 
           {/* Clouds */}
           <motion.img 
-            src="/images/clouds/cloud-1.png"
+            src="/images/clouds/cloud-1.webp"
             className="floating-cloud"
             style={{ width: '40vw', top: '10%', left: '-10%', zIndex: 0 }}
             animate={{ x: [0, 50, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
           />
           <motion.img 
-            src="/images/clouds/cloud-2.png"
+            src="/images/clouds/cloud-2.webp"
             className="floating-cloud"
             style={{ width: '30vw', bottom: '10%', right: '-5%', zIndex: 0 }}
             animate={{ x: [0, -40, 0] }}
@@ -98,7 +98,7 @@ export default function GraphicProjects() {
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Faint base */}
-            <ProtectedImage useNative src="/images/projects/graphic-typography.png" alt="Graphic Typography" className="image-asset" style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }} />
+            <ProtectedImage useNative src="/images/projects/graphic-typography.webp" alt="Graphic Typography" className="image-asset" style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }} />
             {/* Liquid filled portion */}
             <div className="typo-filled" style={{ zIndex: 2 }}>
                 <div className="typo-liquid-container">
@@ -169,11 +169,11 @@ export default function GraphicProjects() {
           left: 0;
           width: 100%;
           height: 100%;
-          -webkit-mask-image: url('/images/projects/graphic-typography.png');
+          -webkit-mask-image: url('/images/projects/graphic-typography.webp');
           -webkit-mask-size: contain;
           -webkit-mask-position: center;
           -webkit-mask-repeat: no-repeat;
-          mask-image: url('/images/projects/graphic-typography.png');
+          mask-image: url('/images/projects/graphic-typography.webp');
           mask-size: contain;
           mask-position: center;
           mask-repeat: no-repeat;
@@ -295,7 +295,7 @@ export default function GraphicProjects() {
       */}
       <div style={{ backgroundColor: '#020202', paddingBottom: '10vh' }}>
         <ProtectedImage useNative
-          src="/images/projects/project-06-kaka/banner.png" 
+          src="/images/projects/project-06-kaka/banner.webp" 
           alt="Kaka Banner" 
           style={{ width: '100%', height: 'auto', display: 'block', marginBottom: '4vw' }} 
         />

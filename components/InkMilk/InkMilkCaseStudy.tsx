@@ -5,9 +5,9 @@ import ProtectedImage from '../ProtectedMedia/ProtectedImage';
 
 export default function InkMilkCaseStudy() {
   const images = [
-    '/images/projects/inkmilk/1.jpg',
-    '/images/projects/inkmilk/2.jpg',
-    '/images/projects/inkmilk/3.jpg'
+    '/images/projects/inkmilk/1.webp',
+    '/images/projects/inkmilk/2.webp',
+    '/images/projects/inkmilk/3.webp'
   ];
 
   return (

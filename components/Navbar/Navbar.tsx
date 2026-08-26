@@ -31,7 +31,7 @@ export default function Navbar() {
       <nav className={`${styles.nav} container`}>
         {/* Logo */}
         <a href="#" className={styles.logo} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <Image src="/images/logo.png" alt="Mohsen" width={100} height={28} style={{ objectFit: 'contain', transform: 'scale(1.8)', transformOrigin: 'left center' }} />
+          <Image src="/images/logo.webp" alt="Mohsen" width={100} height={28} style={{ objectFit: 'contain', transform: 'scale(1.8)', transformOrigin: 'left center' }} />
         </a>
 
         {/* Desktop links */}

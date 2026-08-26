@@ -78,19 +78,19 @@ export default function About() {
       <div className={styles.sceneCanvas}>
         {/* SKY */}
         <motion.div className={`${styles.layer} ${styles.layerSky}`} style={{ x: skyX, y: skyY }}>
-          <Image src="/images/hero-new/sky.jpg" alt="Sky Background" fill className={styles.imageAsset} priority />
+          <Image src="/images/hero-new/sky.webp" alt="Sky Background" fill className={styles.imageAsset} priority />
         </motion.div>
 
         {/* CLOUDS */}
         <motion.div className={`${styles.layer} ${styles.layerClouds}`} style={{ x: cloudX, y: cloudY }}>
           <div className={`${styles.cloud} ${styles.cloud1}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
           <div className={`${styles.cloud} ${styles.cloud2}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
           <div className={`${styles.cloud} ${styles.cloud3}`}>
-            <Image src="/images/hero-new/cloud.jpg" alt="Cloud" fill className={styles.imageAsset} />
+            <Image src="/images/hero-new/cloud.webp" alt="Cloud" fill className={styles.imageAsset} />
           </div>
         </motion.div>
       </div>
@@ -182,7 +182,7 @@ export default function About() {
                   style={{ x: imgX, y: imgY, scale: imgScale }}
                 >
                   <Image 
-                    src="/images/about/me.png" 
+                    src="/images/about/me.webp" 
                     alt="Mohsen - Designer & Developer" 
                     fill 
                     style={{ objectFit: 'cover' }} 

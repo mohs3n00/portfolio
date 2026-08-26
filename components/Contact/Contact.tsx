@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const socials = [
   { icon: FaFacebookF,    label: 'Facebook',    href: 'https://www.facebook.com/mohs3n00?locale', isImage: false },
-  { icon: '/images/behance-icon.png', label: 'Behance',     href: 'https://www.behance.net/mohamedmohs3n', isImage: true },
+  { icon: '/images/behance-icon.webp', label: 'Behance',     href: 'https://www.behance.net/mohamedmohs3n', isImage: true },
 ];
 
 interface CloudProps { baseX: string; baseY: string; size: number; image: string; duration: number; direction: "normal" | "reverse" | "alternate" | "alternate-reverse" | string }
@@ -44,8 +44,8 @@ export default function Contact() {
     <section id="contact" ref={ref} className={styles.section}>
       {/* Decorative Sky Clouds */}
       <div className={styles.skyCloudsContainer}>
-         <SimpleCloud baseX="10%" baseY="30%" size={350} image="/images/about/cloud1.jpg" duration={25} direction="alternate" />
-         <SimpleCloud baseX="85%" baseY="60%" size={450} image="/images/about/cloud2.jpg" duration={35} direction="alternate-reverse" />
+         <SimpleCloud baseX="10%" baseY="30%" size={350} image="/images/about/cloud1.webp" duration={25} direction="alternate" />
+         <SimpleCloud baseX="85%" baseY="60%" size={450} image="/images/about/cloud2.webp" duration={35} direction="alternate-reverse" />
       </div>
 
       <div className="container">
