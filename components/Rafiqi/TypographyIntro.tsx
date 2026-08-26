@@ -1,8 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export default function TypographyIntro() {
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    // Force a complete reset of the animation every 4.5 seconds for a perfect loop
+    const interval = setInterval(() => {
+      setTick(t => t + 1);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div style={{
       width: '100%',
@@ -32,48 +43,53 @@ export default function TypographyIntro() {
         backgroundColor: 'rgba(255, 255, 255, 0.1)', 
       }}>
         
-        {/* Liquid Layer 1 (Background slow wave) */}
-        <motion.div 
-          style={{
-            position: 'absolute',
-            bottom: '-50%',
-            left: '-50%',
-            width: '200%',
-            height: '200%',
-            backgroundColor: '#03C770', /* Slightly darker green */
-            borderRadius: '40%', // Creates the organic wave shape
-            filter: 'blur(8px)',
-          }}
-          animate={{
-            rotate: [0, 360],
-            y: ['20%', '-10%', '20%']
-          }}
-          transition={{
-            rotate: { duration: 25, repeat: Infinity, ease: 'linear' },
-            y: { duration: 15, repeat: Infinity, ease: 'easeInOut' }
-          }}
-        />
+        {/* Calligraphy Write-on Effect (After Effects Style) */}
+        <svg 
+          key={`loop-${tick}`}
+          width="100%" 
+          height="100%" 
+          viewBox="0 0 1000 400" 
+          preserveAspectRatio="none"
+          style={{ position: 'absolute', top: 0, left: 0, zIndex: 2 }}
+        >
+          {/* First Fill (White - High Contrast Leader) */}
+          <motion.path 
+            d="M 950,150 Q 850,350 750,200 Q 650,50 550,200 Q 400,350 250,200 Q 150,100 50,250"
+            fill="none"
+            stroke="#FFFFFF"
+            strokeWidth="350"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            animate={{ 
+              pathLength: [0, 1, 1, 1],
+              opacity: [1, 1, 1, 0]
+            }}
+            transition={{ 
+              duration: 4.5, 
+              ease: ["easeInOut", "linear", "easeInOut"],
+              times: [0, 0.45, 0.8, 1]
+            }}
+          />
 
-        {/* Liquid Layer 2 (Foreground fast wave) */}
-        <motion.div 
-          style={{
-            position: 'absolute',
-            bottom: '-40%',
-            left: '-40%',
-            width: '180%',
-            height: '180%',
-            backgroundColor: '#05FB8E', /* Primary Green */
-            borderRadius: '45%',
-          }}
-          animate={{
-            rotate: [360, 0],
-            y: ['10%', '-20%', '10%']
-          }}
-          transition={{
-            rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
-            y: { duration: 12, repeat: Infinity, ease: 'easeInOut' }
-          }}
-        />
+          {/* Second Fill (Primary Green - Final Shape) */}
+          <motion.path 
+            d="M 950,150 Q 850,350 750,200 Q 650,50 550,200 Q 400,350 250,200 Q 150,100 50,250"
+            fill="none"
+            stroke="#05FB8E"
+            strokeWidth="350"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            animate={{ 
+              pathLength: [0, 0, 1, 1, 1],
+              opacity: [0, 1, 1, 1, 0]
+            }}
+            transition={{ 
+              duration: 4.5, 
+              ease: ["linear", "easeInOut", "linear", "easeInOut"],
+              times: [0, 0.15, 0.6, 0.8, 1]
+            }}
+          />
+        </svg>
         
         {/* Faint static version overlaid so the original texture/details aren't lost if any */}
         <div style={{
